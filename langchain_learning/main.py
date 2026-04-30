@@ -9,11 +9,11 @@ load_dotenv()
 
 # 2. 获取配置
 # 这里读取我们在 .env 里定义的变量名
-api_key = os.getenv("DASHSCOPE_API_KEY")
+api_key = os.getenv("OPENAI_API_KEY")
 base_url = os.getenv("OPENAI_BASE_URL")
 model_name = os.getenv("MODEL_NAME", "qwen-plus") # 如果没配环境变量，默认用 qwen-plus
 
-# 3. 初始化模型
+# 3. 初始化模型(更精细方式，除了这个还可以用from langchain.chat_models import init_chat_model)
 llm = ChatOpenAI(
     model=model_name,
     api_key=api_key,
