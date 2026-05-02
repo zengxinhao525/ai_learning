@@ -15,7 +15,7 @@ load_dotenv()
 # --- 基础设置 ---
 # 注意：文档中使用的是 init_chat_model，这里假设使用 GPT-4o (支持多模态)
 model = init_chat_model(
-    model="kimi-k2.5",  # 请确保这是百炼支持的模型名
+    model="qwen3.5-plus",  # 请确保这是百炼支持的模型名
     model_provider="openai"  # 因为我们使用的是 OpenAI 兼容模式
 )
 
