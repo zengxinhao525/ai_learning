@@ -30,7 +30,7 @@ class MyAgentState(AgentState):
 
 # --- 2. 定义记忆裁剪中间件 ---
 @before_model
-def trim_messages(state: MyAgentState, runtime: Runtime) -> Optional[Dict[str, Any]]:
+def trim_messages(state: MyAgentState, runtime: Runtime) -> dict[str, Any] | None:
     messages = state.get("messages", [])
     # 阈值调整为 6，超过 6 条才开始删
     if len(messages) <= 6:
@@ -59,7 +59,7 @@ agent = create_agent(
     tools=[], 
     state_schema=MyAgentState, 
     middleware=[trim_messages], 
-    checkpointer=memory 
+    checkpointer=memory
 )
 
 # --- 5. 模拟对话 ---
